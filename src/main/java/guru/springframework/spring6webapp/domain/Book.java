@@ -20,6 +20,9 @@ public class Book {
         inverseJoinColumns = @JoinColumn(name = "author_id"))
     public Set<Author> authors = new HashSet<>();
 
+    @ManyToOne
+    private Publisher publisher;
+
     public Long getId() {
         return id;
     }
@@ -73,5 +76,13 @@ public class Book {
     @Override
     public int hashCode() {
         return Objects.hashCode(getId());
+    }
+
+    public Publisher getPublisher() {
+        return publisher;
+    }
+
+    public void setPublisher(Publisher publisher) {
+        this.publisher = publisher;
     }
 }
